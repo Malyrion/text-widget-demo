@@ -3,7 +3,7 @@ import React from 'react'
 type TextFieldProps = {
   value: string
   onChange: (value: string) => void
-  label?: string
+  title?: string
   placeholder?: string
   maxLength?: number
 }
@@ -11,15 +11,15 @@ type TextFieldProps = {
 const TextField: React.FC<TextFieldProps> = ({
   value,
   onChange,
-  label,
+  title,
   placeholder = 'Enter your text here',
   maxLength = 1000,
 }) => {
   return (
     <div className="w-full">
-      {label && (
+      {title && (
         <label className="block text-l font-bold text-gray-700 mb-1">
-          {label}
+          {title}
         </label>
       )}
       <textarea

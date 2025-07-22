@@ -1,13 +1,11 @@
 import React from "react";
 
-type NamedColor = "red" | "green" | "blue";
-
 type ButtonProps = {
   buttonText: string;
   onPress: () => void;
   isLoading?: boolean;
   isDisabled?: boolean;
-  color?: NamedColor;
+  color?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -29,7 +27,6 @@ const Button: React.FC<ButtonProps> = ({
     case "green":
       colorClass = "bg-green-600 hover:bg-green-700 text-white";
       break;
-    case "blue":
     default:
       colorClass = "bg-blue-600 hover:bg-blue-700 text-white";
       break;
@@ -38,10 +35,10 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       onClick={onPress}
-      disabled={isDisabled || isLoading}
+      disabled={isDisabled}
       className={`${baseClass} ${colorClass}`}
     >
-      {isLoading ? "Loading..." : buttonText}
+      {buttonText}
     </button>
   );
 };
